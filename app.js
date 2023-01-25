@@ -39,13 +39,10 @@ app.use(cors());
 app.use(bodyParser.json({limit:"50mb"}));
 
 
-if(process.env.NODE_ENV == "production"){
-  app.use(express.static("simple-chat-app/build"));
-  const path = require('path');
+
   app.get("*",(req,res)=>{
-           res.sendFile(path.resolve(__dirname,"simple-chat-app","build","index.html"));
+           res.send("this is backend");
             });
-}
 
 
 // middlewares
