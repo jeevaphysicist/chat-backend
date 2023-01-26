@@ -40,7 +40,7 @@ app.use(bodyParser.json({limit:"50mb"}));
 
 
 
-  app.get("*",(req,res)=>{
+  app.get("/",(req,res)=>{
            res.send("this is backend");
             });
 
