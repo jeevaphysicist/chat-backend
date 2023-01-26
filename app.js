@@ -21,8 +21,9 @@ const io = new Server(server,{
 });
 const PORT = process.env.PORT || 8080;
 
-const mongoURI = "mongodb://localhost:27017/chattingAPP";
-// const mongoURI = `mongodb+srv://devil:2001@clustor1.mblkznx.mongodb.net/Chatapp`
+
+// const mongoURI = "mongodb://localhost:27017/chattingAPP";
+const mongoURI = "mongodb+srv://devil:2001@cluster0.67p2gql.mongodb.net/chattingApp";
 
 mongoose.connect(mongoURI,()=>{
  console.log('mongodb database connected successfully');
@@ -32,6 +33,9 @@ mongoose.connect(mongoURI,()=>{
 
 mongoose.connection.on("connected",()=>{
   console.log("mongodb connted !!");
+})
+mongoose.connection.on("disconnected",()=>{
+  console.log("mongodb disconnected !!");
 })
 
 
@@ -78,8 +82,8 @@ const removeUser = (socketID)=>{
 
 
 io.on('connection', (socket) => {
-  console.log("socket.id",socket.id);
-  console.log("user connected !!!!");
+  // console.log("socket.id",socket.id);
+  // console.log("user connected !!!!");
   // console.log("users",users);
   socket.on("addusers",(userID)=>{
     // console.log("userId",userID)
