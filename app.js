@@ -15,7 +15,7 @@ const bodyParser = require('body-parser');
 
 const io = new Server(server,{
   cors:{
-    origin:"http://localhost:3000",
+    origin:"https://easy-chat.onrender.com",
     methods:["GET","POST"]
   }
 });
